@@ -1,0 +1,19 @@
+Source: python-utmp
+Section: python
+Priority: optional
+Maintainer: Radovan Garabík <garabik@kassiopeia.juls.savba.sk>
+Standards-Version: 3.8.2
+Build-Depends: debhelper (>= 5.0.37.2), python-all-dev (>= 2.3.5-11), python-support (>= 0.5.3)
+
+Package: python-utmp
+Architecture: any
+Depends: ${python:Depends}, ${shlibs:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: python module for working with utmp
+ python-utmp provides 3 modules to access utmp and wtmp records.
+ utmpaccess is lowlevel module wrapping glibc functions, UTMPCONST
+ provides useful constants, and utmp is module build 
+ on top of utmpaccess module, providing object oriented 
+ interface.
+
