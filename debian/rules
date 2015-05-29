@@ -22,17 +22,25 @@ clean:
 
 	dh_clean
 
-build:
+build: build-arch build-indep
+
+build-arch: build-stamp
+
+build-indep: build-stamp
+
+build-stamp:
+	for ver in $(PYVERS); do \
+	    $(MAKE) PYTHONVER=$$ver clean;              \
+	    $(MAKE) PYTHONVER=$$ver -f Makefile.glibc;  \
+	done
 	dh_testdir
 
 install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	set -e; \
 	for ver in $(PYVERS); do \
-	    $(MAKE) PYTHONVER=$$ver clean;              \
-	    $(MAKE) PYTHONVER=$$ver -f Makefile.glibc;  \
 	    $(MAKE) PYTHONVER=$$ver install DESTDIR=`pwd`/debian/python-utmp; \
 	done
 	dh_installdirs
@@ -45,7 +53,7 @@ binary-indep: ;
 # Build architecture-dependent files here.
 binary-arch: build install
 
-#	dh_installdebconf	
+#	dh_installdebconf
 	dh_installdocs
 	dh_installexamples
 #	dh_installmenu
@@ -59,14 +67,13 @@ binary-arch: build install
 	dh_installchangelogs 
 	dh_link
 	dh_strip
-	dh_pysupport
 	dh_compress
 	dh_fixperms
+	dh_python2
 	# You may want to make some executables suid here.
 #	dh_suidregister
 	dh_makeshlibs
 	dh_installdeb
-#	dh_perl
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
