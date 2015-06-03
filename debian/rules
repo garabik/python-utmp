@@ -8,6 +8,8 @@
 # This is the debhelper compatability version to use.
 #export DH_COMPAT=5
 
+export DEB_BUILD_HARDENING=1
+
 PYVERS := $(subst python,,$(shell pyversions -r))
 
 

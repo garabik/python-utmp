@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: Radovan Garabík <garabik@kassiopeia.juls.savba.sk>
 Standards-Version: 3.9.5
-Build-Depends: debhelper (>= 5.0.37.2), python-all-dev (>= 2.6.6-3), dh-python
+Build-Depends: debhelper (>= 5.0.37.2), python-all-dev (>= 2.6.6-3), dh-python, hardening-wrapper
 
 Package: python-utmp
 Architecture: any
