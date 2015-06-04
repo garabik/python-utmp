@@ -3,6 +3,9 @@
 # works only for systems that have ut_pid
 # linux has, BSD has not
 
+# alert: sshd runs the master process as root, but writes its pid and the real user
+# into utmp, thus these entries will be removed, even if correct
+
 import utmp
 from UTMPCONST import *
 import time, os, string
