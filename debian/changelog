@@ -1,7 +1,22 @@
-python-utmp (0.8.1) unstable; urgency=low
+python-utmp (0.8.2) unstable; urgency=low
 
+  * switch to dh_python2 (closes: #786035)
+
+ -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Thu, 04 Jun 2015 17:10:31 +0200
+
+python-utmp (0.8+nmu1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Update for python2.6 and remove dh_python call (closes: #561062)
+    - Thanks to Scott Howard for the bug and the patch
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 10 Mar 2010 18:20:12 +0000
+
+python-utmp (0.8+0.8.1) unstable; urgency=low
+
+  * this was actually 0.8.1, but I forgot to upload it... bummer.
   * remove dh_python (closes: #561062), bump pyversions and
-    python-support build depencency version
+    python-support build dependency version
 
  -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Sun, 03 Jan 2010 17:15:24 +0100
 
