@@ -59,8 +59,8 @@ ut_addr_v6              4*[0]
 ut_session              0
 
 
-CAVEAT: 
-If native platform misses ut_type, it distinguishes between user
+CAVEAT:
+If the native platform misses ut_type, it distinguishes between user
 processes and pseudo-entries by ut_line. python-utmp tries to guess the
 appropriate ut_type in this case. It might not guess correctly.
 Moreover, I have seen some quirks with ut_type==USER_PROCESS  for date
