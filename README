@@ -1,14 +1,13 @@
-http://kassiopeia.juls.savba.sk/~garabik/software/python-utmp
+http://kassiopeia.juls.savba.sk/~garabik/software/python-utmp.html
 garabik @ kassiopeia.juls.savba.sk
-====================================================
+==================================================================
 
 python-utmp consists of three modules, providing access to utmp records.
-It is quite difficult to access utmp record portably, because every UNIX
-has different structure of utmp files. Currently, python-utmp works on
-platforms which provide getutent, getutid, getutline,  pututline,
-setutent, endutent and utmpname functions (such as GNU systems
-(Linux and hurd) and System V unices) and on BSD systems using
-simple utmp structure.
+It is quite difficult to access utmp record portably, because every UNIX has
+different structure of utmp files. Currently, python-utmp works on platforms
+which provide getutent, getutid, getutline,  pututline, setutent, endutent and
+utmpname functions (such as GNU systems (Linux and hurd) and System V unices)
+and on BSD systems using simple utmp structure.
 
 python-utmp is known to work on
 linux with glibc2.0, glibc2.1, glibc2.2, glibc2.3; SunOS 5.6; 
