@@ -30,7 +30,7 @@ Some of the examples work with python3, converting others will be trivial.
 
 
 There was a big API change in version 0.7 – old interface has
-been kept for backward portability, but may be removed in the future.     
+been kept for backward portability, but may be removed in the future.
 
 Usually, system provides functions for accessing utmp, but on *BSD
 systems the only way (IMHO) is to read utmp file as consisting of
