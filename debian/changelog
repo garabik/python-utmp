@@ -1,3 +1,9 @@
+python-utmp (0.8.3) unstable; urgency=high
+
+  * remove depencency on hardening-wrapper (closes: #836649)
+
+ -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Fri, 16 Sep 2016 16:03:24 +0200
+
 python-utmp (0.8.2) unstable; urgency=low
 
   * switch to dh_python2 (closes: #786035)
