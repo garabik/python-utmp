@@ -2,6 +2,8 @@ python-utmp (0.8.3-1) unstable; urgency=low
 
   * switch to quilt format
   * build python3 module
+  * convert examples to python3
+  * fix UtmpEntry initialization in modern python
 
  -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Thu, 05 Sep 2019 08:41:02 +0200
 
