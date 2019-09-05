@@ -1,5 +1,5 @@
 PYTHONVER?=3.7
-PYTHONDIR=$(DESTDIR)/usr/lib/python$(PYTHONVER)/site-packages/
+PYTHONDIR=$(DESTDIR)/usr/lib/python$(PYTHONVER)/dist-packages/
 PYTHONINCLUDE=/usr/include/python$(PYTHONVER)/
 
 CC = gcc 
