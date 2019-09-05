@@ -44,7 +44,7 @@ install: build
 	dh_prep
 	set -e; \
 	for ver in $(PYVERS); do \
-	    $(MAKE) PYTHONVER=$$ver install DESTDIR=$(CURDIR)/debian/python-utmp; \
+	    $(MAKE) PYTHONVER=$$ver install DESTDIR=$(CURDIR)/debian/python3-utmp; \
 	done
 	dh_installdirs
 
