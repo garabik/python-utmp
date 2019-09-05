@@ -12,7 +12,7 @@ export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-PYVERS := $(subst python,,$(shell pyversions -r))
+PYVERS := $(subst python3,,$(shell py3versions -r))
 
 clean:
 	dh_testdir
@@ -44,7 +44,7 @@ install: build
 	dh_prep
 	set -e; \
 	for ver in $(PYVERS); do \
-	    $(MAKE) PYTHONVER=$$ver install DESTDIR=`pwd`/debian/python-utmp; \
+	    $(MAKE) PYTHONVER=$$ver install DESTDIR=$(CURDIR)/debian/python-utmp; \
 	done
 	dh_installdirs
 
@@ -67,12 +67,12 @@ binary-arch: build install
 #	dh_installmanpages
 #	dh_installinfo
 #	dh_undocumented
-	dh_installchangelogs 
+	dh_installchangelogs
 	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-	dh_python2
+	dh_python
 	# You may want to make some executables suid here.
 #	dh_suidregister
 	dh_makeshlibs
