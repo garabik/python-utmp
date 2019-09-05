@@ -1,15 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import utmp
 from UTMPCONST import *
-import time, pwd, grp, os, string, sys, socket, popen2
+import time, pwd, grp, os, string, sys, socket
 from stat import *
-from string import lower
-
 
 def getrealname(gec):
     # get real name from gecos fiels
-    return string.split(gec,",",1)[0]
+    return gec.split(",",1)[0]
 
 def formatidle(t):
     if t<30:
@@ -73,7 +71,7 @@ def userlist(u, now, user=""):
                     p = '*'
             except:
                 p = '?'
-                
+
             if p == '?':
                 continue
             #length sanitation
@@ -89,7 +87,7 @@ def userlist(u, now, user=""):
                       )
                 #print 60*"-"
                 header = 1
-        
+
             output.append( "%-12s%-7s%4s%2s%-8s%-30s" % 
                    (username,login,idle,p,tty,location) )
     output.sort()
@@ -121,7 +119,7 @@ def lastlogin(u, user):
     u.endutent()
     return lastlogin
 
-def userplan(homedir):          
+def userplan(homedir):
     try:
         f = open(homedir+"/.plan", "r")
         print("Plan:")
@@ -129,8 +127,8 @@ def userplan(homedir):
             l = f.readline()
             if not l:
                 break
-            print string.rstrip(l)
-    except:
+            print (string.rstrip(l))
+    except IOError:
         pass
 
 
@@ -154,7 +152,7 @@ def oneuser(u, user):
 print('\n')
 
 if len(sys.argv) == 2 and "@" in sys.argv[1]: # remote
-    user, host = string.split(sys.argv[1], "@", 1)
+    user, host = sys.argv[1].split("@", 1)
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         FINGER_PORT = 79
@@ -165,8 +163,9 @@ if len(sys.argv) == 2 and "@" in sys.argv[1]: # remote
             if not buf: break
             sys.stdout.write(buf)
         sys.stdout.flush()
-    except socket.error, why:
-        print "ERROR:", why
+    except socket.error:
+        print ("ERROR connecting")
+        raise
     sys.exit(0)
 
 now = time.localtime(time.time())
@@ -175,7 +174,7 @@ a = utmp.UtmpRecord()
 if len(sys.argv) == 1: # list of all local users
     r = userlist(a, now)
     if not r:
-        print "No such processes."
+        print ("No such processes.")
 
 else:
     #first find out if user exists
@@ -184,10 +183,10 @@ else:
         pwd.getpwnam(user)
         r = userlist(a, now, user)
         if not r:
-            print '"%s" isn\'t logged in.' % user
+            print ('"%s" isn\'t logged in.' % user)
         print
         oneuser(a, user)
     except KeyError:
-        print '"%s" does not match any user of this system.' % user
+        print ('"%s" does not match any user of this system.' % user)
 a.endutent()
 

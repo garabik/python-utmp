@@ -16,7 +16,7 @@ class UtmpEntry:
         elif type(arg)==dict:
             for i in arg.keys():
                 self[i] = arg[i]
-        elif type(arg)==types.InstanceType:
+        elif type(arg)==type(self):
             self.ut_type, self.ut_pid, self.ut_line, \
             self.ut_id, self.ut_user, self.ut_host, \
             self.ut_exit, self.ut_session, self.ut_tv, \

@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# dump utmp 
+#!/usr/bin/python3
+# dump utmp
 
 import utmp
 from UTMPCONST import *

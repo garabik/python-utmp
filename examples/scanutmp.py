@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # scan utmp and remove bogus entries
 # works only for systems that have ut_pid
 # linux has, BSD has not

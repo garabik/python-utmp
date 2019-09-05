@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # poor man's last
 
 import utmp
